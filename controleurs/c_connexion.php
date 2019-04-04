@@ -35,7 +35,8 @@ case 'valideConnexion':
         $id = $visiteur['id'];
         $nom = $visiteur['nom'];
         $prenom = $visiteur['prenom'];
-        connecter($id, $nom, $prenom);
+        $compta = $visiteur['compta'];
+        connecter($id, $nom, $prenom, $compta);
         header('Location: index.php');
     }
     break;
