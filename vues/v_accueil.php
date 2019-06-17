@@ -43,7 +43,7 @@
                     <div class="col-xs-12 col-md-12">
                         <?php
                         if($_SESSION['compta']==1){
-                            echo '<a href="index.php?uc=validerFrais&action=valideFrais" class="btn btn-success btn-lg" role="button">
+                            echo '<a href="index.php?uc=validerFrais&action=selectionVisiteur" class="btn btn-success btn-lg" role="button">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <br>Validation fiche de frais</a>
                             

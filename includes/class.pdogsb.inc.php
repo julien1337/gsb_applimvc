@@ -486,4 +486,28 @@ class PdoGsb
         $requetePrepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
         $requetePrepare->execute();
     }
+    
+    /**
+     * Retourne tous les noms des visiteurs dans la base de données
+     * @return un tableau avec le nom des visiteurs
+     */
+    public function getLesVisiteurs()
+    {
+        $requetePrepare = PdoGSB::$monPdo->prepare(
+            'SELECT visiteur.id AS id, visiteur.nom AS nom '
+                . 'FROM visiteur '
+                . 'ORDER BY nom '
+        );
+        $requetePrepare->execute();
+        $lesVisiteurs = array();
+        while ($laLigne = $requetePrepare->fetch()) {
+            $nom = $laLigne['nom'];
+            $idVisiteur = $laLigne['id'];
+            $lesVisiteurs[] = array(
+                'nom' => $nom,
+                'id'  => $idVisiteur,
+            );
+        }
+        return $lesVisiteurs;
+    }
 }
