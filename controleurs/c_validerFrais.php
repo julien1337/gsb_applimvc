@@ -1,13 +1,11 @@
 <?php
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+$idVisiteur=$_SESSION['idVisiteur'];
 switch ($action) {
 
 case 'selectionVisiteur':
     $lesVisiteurs = $pdo->getLesVisiteurs();
-    $idVisiteur = $lesVisiteurs['id'];
-    $lesCles = array_keys($lesVisiteurs);
-    $visiteurASelectionner = $lesCles[0];
     include 'vues/v_listeVisiteurs.php';
     break;
 

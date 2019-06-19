@@ -20,7 +20,7 @@
         <h3>Sélectionner un mois : </h3>
     </div>
     <div class="col-md-4">
-        <form action="index.php?uc=etatFrais&action=voirEtatFrais" 
+        <form action="index.php?uc=validerFrais&action=validationFrais" 
               method="post" role="form">
             <div class="form-group">
                 <label for="lstMois" accesskey="n">Mois : </label>

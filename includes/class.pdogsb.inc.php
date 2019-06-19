@@ -40,8 +40,8 @@ class PdoGsb
 {
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=gsb_frais';
-    private static $user = 'userGsb';
-    private static $mdp = 'secret';
+    private static $user = 'root';
+    private static $mdp = '';
     private static $monPdo;
     private static $monPdoGsb = null;
 
@@ -494,18 +494,15 @@ class PdoGsb
     public function getLesVisiteurs()
     {
         $requetePrepare = PdoGSB::$monPdo->prepare(
-            'SELECT visiteur.id AS id, visiteur.nom AS nom '
-                . 'FROM visiteur '
+            'SELECT nom'
+                . 'FROM visiteur, '
                 . 'ORDER BY nom '
         );
         $requetePrepare->execute();
         $lesVisiteurs = array();
-        while ($laLigne = $requetePrepare->fetch()) {
-            $nom = $laLigne['nom'];
-            $idVisiteur = $laLigne['id'];
+        while ($requetePrepare->fetch()) {
             $lesVisiteurs[] = array(
-                'nom' => $nom,
-                'id'  => $idVisiteur,
+                'nom' => $requetePrepare->fetch()
             );
         }
         return $lesVisiteurs;

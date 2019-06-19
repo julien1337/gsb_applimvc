@@ -1,5 +1,3 @@
-
-
 <h2>Mes fiches de frais</h2>
 <div class="row">
     <div class="col-md-4">
@@ -9,25 +7,22 @@
         <form action="index.php?uc=validerFrais&action=selectionMois" 
               method="post" role="form">
             <div class="form-group">
-                <label for="lstVisiteur" accesskey="n">Visiteur : </label>
+                <label for="lstVisiteur" accesskey="n">Visiteurs : </label>
                 <select id="lstVisiteur" name="lstVisiteur" class="form-control">
                     <?php
                     foreach ($lesVisiteurs as $unVisiteur) {
-                        $nom = $unVisiteur['nom'];
-                        if ($nom == $visiteurASelectionner) {
+                            $nom = $unVisiteur['nom'];
                             ?>
                             <option selected value="<?php echo $nom ?>">
                                 </option>
                             <?php
-                        } else {
+                         
                             ?>
-                            <option value="<?php echo $nom ?>">
+                            <option value="<?php echo $lesVisiteurs ?>">
                                </option>
                             <?php
-                        }
                     }
-                    ?>    
-
+                    ?>
                 </select>
             </div>
             <input id="ok" type="submit" value="Valider" class="btn btn-success" 
